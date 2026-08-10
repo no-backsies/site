@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NoBacksies — Bet on yourself</title>
 <style>
 @font-face {
@@ -248,7 +249,7 @@ h1.headline .grn { color: var(--money); }
 }
 
 /* ── Sections generic ────────────────────────────────────────────────── */
-section { padding: 0 24px 96px; }
+section { padding: 88px 24px 96px; }
 .section-inner { max-width: 1080px; margin: 0 auto; }
 .section-head { text-align: center; margin-bottom: 48px; }
 .section-head .eyebrow { animation: none; opacity: 1; }
@@ -475,7 +476,7 @@ h2.section-title {
 .honesty-list li .ok { color: var(--money); flex-shrink: 0; }
 
 /* ── Final CTA ──────────────────────────────────────────────────────── */
-.final-cta { text-align: center; padding-top: 24px; }
+.final-cta { text-align: center; padding-top: 64px; }
 .final-cta h2 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -508,6 +509,35 @@ footer {
 :focus-visible {
   outline: 2px solid var(--money);
   outline-offset: 2px;
+}
+
+@media (max-width: 680px) {
+  .nav-row { padding: 13px 16px; }
+  .nav-links { gap: 10px; }
+  .nav-links a.privacy { display: none; }
+  .nav-cta { padding: 8px 13px; font-size: 12.5px; }
+
+  section { padding: 56px 20px 64px; }
+  .deal { padding-top: 40px; }
+  .final-cta { padding-top: 40px; }
+
+  .hero { padding: 48px 20px 0; }
+  .stamp {
+    position: static;
+    display: inline-block;
+    margin: 0 0 24px;
+    transform: rotate(-4deg);
+  }
+  h1.headline { letter-spacing: -1px; }
+
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+
+  .slip { padding: 22px 18px 8px; }
+  .slip-tear { margin: 0 -18px; }
+  .slip-row { font-size: 13px; }
+
+  .charity-card { flex-direction: column; text-align: center; align-items: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
