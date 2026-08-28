@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — NoBacksies</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<canvas id="grain"></canvas>
+
+<header class="nav">
+  <div class="nav-row">
+    <a href="/" class="wordmark"><span class="no">No</span><span class="backsies">Backsies</span></a>
+    <div class="nav-links">
+      <a class="privacy" href="https://legal.nobacksies.app/">Privacy</a>
+      <a class="btn btn-primary nav-cta" href="mailto:support@nobacksies.app?subject=Early%20access%20to%20NoBacksies">Get early access</a>
+    </div>
+  </div>
+</header>
+
+<main class="legal-main">
+  <p class="eyebrow">Pricing</p>
+  <h1>No subscription. No hidden charges.</h1>
+  <p class="intro">
+    NoBacksies charges one flat joining fee per challenge, plus a refundable deposit you
+    choose yourself. That's the entire pricing model.
+  </p>
+
+  <section>
+    <h2>Joining fee</h2>
+    <p>
+      <strong>&#8377;99 per challenge</strong>, charged once when you start it. This is the
+      only money NoBacksies ever keeps, whether you finish the challenge or not. It is
+      non-refundable once the challenge has started &mdash; see our
+      <a href="/refunds/">Refund &amp; Cancellation Policy</a> for the short window in
+      which it can still be refunded before that.
+    </p>
+  </section>
+
+  <section>
+    <h2>Deposit</h2>
+    <p>
+      You choose an amount to deposit for the length of your challenge: <strong>&#8377;500,
+      &#8377;1,000, or &#8377;2,000</strong> are the presets in the app, or you can set any
+      custom amount &#8377;500 and above. This is not a fee &mdash; it's held for you and
+      returned in full if you complete the challenge.
+    </p>
+  </section>
+
+  <section>
+    <h2>No subscription, no recurring charges</h2>
+    <p>
+      There is no monthly or annual plan. Every challenge is a single, one-time
+      transaction: the joining fee plus your chosen deposit, paid once at the start.
+      Starting a new challenge later is a separate, independent transaction.
+    </p>
+  </section>
+
+  <section>
+    <h2>A worked example</h2>
+    <div class="slip">
+      <div class="slip-head">NOBACKSIES &middot; COMMITMENT SLIP</div>
+      <div class="slip-row"><span class="k">ACTIVITY</span><span class="v">Gym check-in</span></div>
+      <div class="slip-row"><span class="k">DURATION</span><span class="v">30 days</span></div>
+      <div class="slip-row"><span class="k">DEPOSIT</span><span class="v">&#8377;1,000</span></div>
+      <div class="slip-row"><span class="k">JOINING FEE</span><span class="v">&#8377;99</span></div>
+      <hr class="slip-divider">
+      <div class="slip-row lead"><span class="k">YOU PAY TODAY</span><span class="v">&#8377;1,099</span></div>
+      <hr class="slip-divider">
+      <div class="slip-outcome win">
+        <div class="oc-label">IF YOU SHOW UP 30/30</div>
+        <div class="oc-row"><span>Refunded to you</span><span class="oc-amount">&#8377;1,000</span></div>
+        <div class="oc-sub">Back in your account. No cut, no fee on the way out.</div>
+      </div>
+      <hr class="slip-divider">
+      <div class="slip-outcome miss">
+        <div class="oc-label">IF YOU MISS THE CUTOFF</div>
+        <div class="oc-row"><span>Forfeited</span><span class="oc-amount">&#8377;1,000</span></div>
+        <div class="oc-sub">Donated to charity. You get the receipt.</div>
+      </div>
+      <div class="slip-tear"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-row">
+    <span>&copy; 2026 NoBacksies</span>
+    <div class="footer-links">
+      <a href="/terms/">Terms</a>
+      <a href="/refunds/">Refunds</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="https://legal.nobacksies.app/">Privacy</a>
+      <a href="/contact/">Contact</a>
+      <a href="https://legal.nobacksies.app/delete-account.html">Delete your data</a>
+      <a href="mailto:support@nobacksies.app">support@nobacksies.app</a>
+      <span class="plain-email">support@nobacksies.app</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var canvas = document.getElementById('grain');
+  var ctx = canvas.getContext('2d');
+  function size() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  function paint() {
+    size();
+    var w = canvas.width, h = canvas.height;
+    var imageData = ctx.createImageData(w, h);
+    var buffer = new Uint32Array(imageData.data.buffer);
+    for (var i = 0; i < buffer.length; i++) {
+      var v = Math.random() * 255 | 0;
+      buffer[i] = (255 << 24) | (v << 16) | (v << 8) | v;
+    }
+    ctx.putImageData(imageData, 0, 0);
+  }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    paint();
+  }
+  window.addEventListener('resize', function() {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) paint();
+  });
+})();
+</script>
+
+</body>
+</html>

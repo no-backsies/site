@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refund &amp; Cancellation Policy — NoBacksies</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<canvas id="grain"></canvas>
+
+<header class="nav">
+  <div class="nav-row">
+    <a href="/" class="wordmark"><span class="no">No</span><span class="backsies">Backsies</span></a>
+    <div class="nav-links">
+      <a class="privacy" href="https://legal.nobacksies.app/">Privacy</a>
+      <a class="btn btn-primary nav-cta" href="mailto:support@nobacksies.app?subject=Early%20access%20to%20NoBacksies">Get early access</a>
+    </div>
+  </div>
+</header>
+
+<main class="legal-main">
+  <p class="eyebrow">Legal</p>
+  <h1>Refund &amp; Cancellation Policy</h1>
+  <p class="intro">
+    The short version: finish your challenge and your full deposit comes back. Cancel
+    early enough and you get everything back, fee included. Fail, and the deposit is
+    donated, not refunded.
+  </p>
+
+  <section>
+    <h2>On completion: full deposit refunded</h2>
+    <p>
+      Complete every required check-in for your challenge and your entire deposit is
+      refunded to the original payment method used to pay it. Refunds are typically
+      processed within <strong>5&ndash;7 working days</strong> of completion, depending on
+      your bank or card issuer.
+    </p>
+  </section>
+
+  <section>
+    <h2>The &#8377;99 joining fee</h2>
+    <p>
+      The joining fee is non-refundable once a challenge has started. It covers the cost
+      of running the service &mdash; verification, hosting, and support &mdash; regardless
+      of how the challenge ends.
+    </p>
+  </section>
+
+  <section>
+    <h2>Cancelling before you start</h2>
+    <p>
+      You can cancel a challenge for a full refund, including the &#8377;99 joining fee, if
+      both of the following are true:
+    </p>
+    <ul>
+      <li>It has been less than <strong>24 hours</strong> since you paid, and</li>
+      <li>You have not yet made your first check-in.</li>
+    </ul>
+    <p>
+      To cancel within this window, email <a href="mailto:support@nobacksies.app">support@nobacksies.app</a>
+      with your account email and challenge details. Once either condition above is no
+      longer true, the challenge runs its normal course &mdash; complete it for a full
+      deposit refund, or let it lapse and the deposit is donated.
+    </p>
+  </section>
+
+  <section>
+    <h2>On failure: donated, not refunded</h2>
+    <p>
+      If a challenge is marked failed &mdash; more missed check-ins than your plan's grace
+      allowance covers &mdash; the deposit is <strong>not refunded</strong>. It is instead
+      donated in full to our charity partner, Akshaya Patra, once the dispute window below
+      has closed. You receive a donation receipt inside the app.
+    </p>
+  </section>
+
+  <section>
+    <h2>Disputing an outcome</h2>
+    <p>
+      If you believe a check-in was wrongly rejected or a challenge was wrongly marked
+      failed, email <a href="mailto:support@nobacksies.app">support@nobacksies.app</a>
+      within <strong>48 hours</strong> of the outcome. We hold forfeited deposits for this
+      full window before any donation is made, specifically so a genuine dispute can still
+      be resolved in your favor.
+    </p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>
+      For anything not covered here, reach us at
+      <a href="mailto:support@nobacksies.app">support@nobacksies.app</a> or see our
+      <a href="/contact/">Contact</a> page.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-row">
+    <span>&copy; 2026 NoBacksies</span>
+    <div class="footer-links">
+      <a href="/terms/">Terms</a>
+      <a href="/refunds/">Refunds</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="https://legal.nobacksies.app/">Privacy</a>
+      <a href="/contact/">Contact</a>
+      <a href="https://legal.nobacksies.app/delete-account.html">Delete your data</a>
+      <a href="mailto:support@nobacksies.app">support@nobacksies.app</a>
+      <span class="plain-email">support@nobacksies.app</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var canvas = document.getElementById('grain');
+  var ctx = canvas.getContext('2d');
+  function size() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  function paint() {
+    size();
+    var w = canvas.width, h = canvas.height;
+    var imageData = ctx.createImageData(w, h);
+    var buffer = new Uint32Array(imageData.data.buffer);
+    for (var i = 0; i < buffer.length; i++) {
+      var v = Math.random() * 255 | 0;
+      buffer[i] = (255 << 24) | (v << 16) | (v << 8) | v;
+    }
+    ctx.putImageData(imageData, 0, 0);
+  }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    paint();
+  }
+  window.addEventListener('resize', function() {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) paint();
+  });
+})();
+</script>
+
+</body>
+</html>
